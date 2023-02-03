@@ -1,0 +1,16 @@
+<div>
+  <h2>Paper form :</h2>
+  <form [formGroup]="paperFormGroup" (ngSubmit)="onSubmit()">
+    <label for="paperName">Nom :</label>
+    <input formControlName="nom" type="text" id="paperName" name="paperName">
+    <label for="paperTexture">Texture :</label>
+    <input formControlName="texture" type="text" name="paperTexture">
+    <label for="paperGrammage">Grammage : </label>
+    <input formControlName="grammage" type="text" name="paperGrammage">
+    <label for="paperCouleur">Couleur :</label>
+    <input formControlName="couleur" type="text" name="paperCouleur">
+
+    <button *ngIf="paperToEdit != null">Edit</button>
+    <button *ngIf="paperToEdit == null">Add</button>
+  </form>
+</div>

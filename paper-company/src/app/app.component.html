@@ -1,0 +1,5 @@
+<div>
+  <h1>{{title}}</h1>
+  <app-paper-list (paperEmit)="onPaperClick($event)"></app-paper-list>
+  <app-paper-detail [paper]="currentPaper"></app-paper-detail>
+</div>

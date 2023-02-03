@@ -1,0 +1,20 @@
+<div *ngIf="paper !== null">
+  <h2>Paper details: </h2>
+  <div>
+    <p> Id: {{paper!.id}}</p>
+    <p> Nom: {{paper!.nom}}</p>
+    <p> Texture: {{paper!.texture}}</p>
+    <p> Grammage: {{paper!.grammage}}</p>
+    <p> Couleur: {{paper!.couleur}}</p>
+  </div>
+  <button (click)="openModal()">Edit</button>
+  <dialog [open]="modalState">
+    <article>
+      <header>
+        <a href="#close" aria-label="Close" class="close" (click)="closeModal()"></a>
+        Edit Paper
+      </header>
+      <app-paper-form [paperToEdit]="paper"></app-paper-form>
+    </article>
+  </dialog>
+</div>
