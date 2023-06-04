@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Paper } from 'src/app/model/paper';
 import { ProductsService } from 'src/app/services/products.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-paper-list',
@@ -10,10 +11,9 @@ import { ProductsService } from 'src/app/services/products.service';
 export class PaperListComponent {
   papers : Paper[] = [];
   selectedPaper : Paper | null = null;
-  modalState = false;
   @Output() paperEmit = new EventEmitter<Paper>();
 
-  constructor(private list : ProductsService){
+  constructor(private list : ProductsService, private router: Router){
 
   }
 
@@ -27,15 +27,12 @@ export class PaperListComponent {
 
   paperClick(paper: Paper){
     this.selectedPaper = paper;
+    console.log(paper);
     this.paperEmit.emit(this.selectedPaper);
+    this.router.navigate(['/paperDetail/'+paper.id]);
   }
 
   openModal(){
-    this.modalState = true;
+    this.router.navigate(['/paperForm']);
   }
-
-  closeModal(){
-    this.modalState = false;
-  }
-
 }

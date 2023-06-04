@@ -14,6 +14,14 @@ export class ProductsService {
     return this.papers;
   }
 
+  getPaperById(id : string) : Paper | null{
+    let paper = this.papers.find(p => p.id === id);
+    if(paper){
+      return paper;
+    }
+    return null;
+  }
+
   addPaper(paper : Paper){
     this.papers.push(paper);
   }
